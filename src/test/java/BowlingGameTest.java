@@ -27,4 +27,25 @@ public class BowlingGameTest {
         assertEquals((int)BowlingGame.scoreBoard.get(BowlingGame.currentFrame - 2).getFrameScore(), 14);
     }
 
+    @Test
+    void should_retrun_sum_when_convert_given_no_strike_and_no_spare_and_last_frame() {
+        BowlingGame bowlingGame = new BowlingGame();
+        bowlingGame.throwInSingleFrame(5, 5, 10);
+        assertEquals((int)BowlingGame.scoreBoard.get(BowlingGame.currentFrame - 1).getFrameScore(), 20);
+    }
+
+    @Test
+    void should_retrun_sum_when_convert_given_strike_and_last_frame() {
+        BowlingGame bowlingGame = new BowlingGame();
+        bowlingGame.throwInSingleFrame(10, 5, 10);
+        assertEquals((int)BowlingGame.scoreBoard.get(BowlingGame.currentFrame - 1).getFrameScore(), 25);
+    }
+
+    @Test
+    void should_retrun_sum_when_convert_given_spare_and_last_frame() {
+        BowlingGame bowlingGame = new BowlingGame();
+        bowlingGame.throwInSingleFrame(5, 5, 10);
+        assertEquals((int)BowlingGame.scoreBoard.get(BowlingGame.currentFrame - 1).getFrameScore(), 20);
+    }
+
 }

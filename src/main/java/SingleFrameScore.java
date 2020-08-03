@@ -12,8 +12,6 @@ public class SingleFrameScore {
 
     Boolean isSpare = false;
 
-    Boolean isLastFrame = false;
-
     public Integer getFirstThrow() {
         return firstThrow;
     }
@@ -60,13 +58,5 @@ public class SingleFrameScore {
 
     public void setSpare(Boolean spare) {
         isSpare = spare;
-    }
-
-    public Boolean getLastFrame() {
-        return isLastFrame;
-    }
-
-    public void setLastFrame(Boolean lastFrame) {
-        isLastFrame = lastFrame;
     }
 }

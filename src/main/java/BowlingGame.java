@@ -30,6 +30,27 @@ public class BowlingGame {
         addSingleFrameScore(singleFrameScore);
     }
 
+    // last frame
+    public void throwInSingleFrame(int firstThrow, int secondThrow, int threeThrow) {
+        SingleFrameScore singleFrameScore = new SingleFrameScore();
+        singleFrameScore.setFirstThrow(firstThrow);
+        singleFrameScore.setSecondThrow(secondThrow);
+        singleFrameScore.setThreeThrow(threeThrow);
+
+        if (firstThrow == 10) {
+            // strike
+            singleFrameScore.setStrike(true);
+            singleFrameScore.setFrameScore(firstThrow + secondThrow + threeThrow);
+        }else if (firstThrow + secondThrow == 10) {
+            // spare
+            singleFrameScore.setSpare(true);
+            singleFrameScore.setFrameScore(firstThrow + secondThrow + threeThrow);
+        }else {
+            singleFrameScore.setFrameScore(firstThrow + secondThrow);
+        }
+        addSingleFrameScore(singleFrameScore);
+    }
+
     public void addSingleFrameScore(SingleFrameScore singleFrameScore) {
         scoreBoard.add(singleFrameScore);
         currentFrame++;
@@ -39,13 +60,13 @@ public class BowlingGame {
     // check previous frame is strike or spare
     public void checkPreviousFrame() {
         if (currentFrame > 1) {
-            if (scoreBoard.get(currentFrame - 2).getStrike() == true) {
+            if (scoreBoard.get(currentFrame - 2).getStrike()) {
                 SingleFrameScore currentFrameScore = scoreBoard.get(currentFrame - 1);
                 SingleFrameScore previousFrameScore = scoreBoard.get(currentFrame - 2);
-                previousFrameScore.setFrameScore(previousFrameScore.getFrameScore() + currentFrameScore.getFrameScore());
+                previousFrameScore.setFrameScore(previousFrameScore.getFrameScore() + currentFrameScore.getFirstThrow() + currentFrameScore.getSecondThrow());
                 scoreBoard.set(currentFrame - 2, previousFrameScore);
             }
-            if (scoreBoard.get(currentFrame - 2).getSpare() == true) {
+            if (scoreBoard.get(currentFrame - 2).getSpare()) {
                 SingleFrameScore currentFrameScore = scoreBoard.get(currentFrame - 1);
                 SingleFrameScore previousFrameScore = scoreBoard.get(currentFrame - 2);
                 previousFrameScore.setFrameScore(previousFrameScore.getFrameScore() + currentFrameScore.getFirstThrow());
