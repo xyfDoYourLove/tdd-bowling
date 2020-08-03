@@ -13,9 +13,8 @@ public class BowlingGame {
         singleFrameScore.setFirstThrow(firstThrow);
         singleFrameScore.setSecondThrow(secondThrow);
         singleFrameScore.setFrameScore(firstThrow+secondThrow);
-        scoreBoard.add(singleFrameScore);
-        currentFrame++;
-        checkPreviousFrame();
+
+        addSingleFrameScore(singleFrameScore);
     }
 
     // current frame is strike
@@ -24,6 +23,11 @@ public class BowlingGame {
         singleFrameScore.setFirstThrow(firstThrow);
         singleFrameScore.setStrike(true);
         singleFrameScore.setFrameScore(firstThrow);
+
+        addSingleFrameScore(singleFrameScore);
+    }
+
+    public void addSingleFrameScore(SingleFrameScore singleFrameScore) {
         scoreBoard.add(singleFrameScore);
         currentFrame++;
         checkPreviousFrame();
