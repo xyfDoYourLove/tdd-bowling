@@ -1,12 +1,12 @@
 public class SingleFrameScore {
 
-    Integer firstThrow;
+    Integer firstThrow = 0;
 
-    Integer secondThrow;
+    Integer secondThrow = 0;
 
-    Integer threeThrow;
+    Integer threeThrow = 0;
 
-    Integer frameScore;
+    Integer frameScore = 0;
 
     Boolean isStrike = false;
 

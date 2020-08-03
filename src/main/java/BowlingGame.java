@@ -74,4 +74,12 @@ public class BowlingGame {
             }
         }
     }
+
+    public int calculateTotalScore() {
+        Integer sumTotal = 0;
+        for (int i = 0; i < scoreBoard.size(); i++) {
+            sumTotal += scoreBoard.get(i).getFrameScore();
+        }
+        return sumTotal;
+    }
 }
